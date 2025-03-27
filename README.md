@@ -27,7 +27,7 @@
 
 ##  Canlı Demo
 
-    https://rcptok25.github.io/produtc-list-html-css/
+   [Projeyi Buradan Görüntüleyin](https://rcptok25.github.io/produtc-list-html-css/ )
     
 
 ## © 2025 Recep TOK– Tüm hakları saklıdır.
