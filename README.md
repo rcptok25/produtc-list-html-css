@@ -13,8 +13,10 @@
     - Projeyi klonlayın
         ```bash
         git clone https://github.com/rcptok25/produtc-list-html-css
+
     - Proje klasörüne geçin 
         cd produtc-list-html-css  
+
     - Projeyi Çalıştırın
         index.html dosyasına çift tıklayarak kolayca çalıştırabilirsiniz.
 ## Kullanılan Teknolojiler
@@ -25,6 +27,7 @@
 
 ##  Canlı Demo
 
-    asdasd
+    https://rcptok25.github.io/produtc-list-html-css/
+    
 
 ## © 2025 Recep TOK– Tüm hakları saklıdır.

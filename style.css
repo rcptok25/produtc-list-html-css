@@ -195,6 +195,17 @@ header {
   box-shadow: 0 0 0 0.25rem rgba(29, 33, 41, 0.25);
 }
 
+
+@media screen and (max-width: 350px) {
+  .pagination-container {
+    flex-direction: column !important;
+  }
+
+  .pagination-container select {
+    margin-top: 1rem;
+  }
+}
+
 /* Footer Style */
 footer {
   margin-top: auto;
