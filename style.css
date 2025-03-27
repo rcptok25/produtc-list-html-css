@@ -66,6 +66,8 @@ header {
 /*  Product List Style  */
 .main-container{
   margin-top: 100px;
+  min-height: calc(100vh - 100px - 400px); /* Header ve footer yüksekliğini hesaba katarak minimum yükseklik belirliyoruz */
+  flex: 1;
 }
 
 .product-image {
@@ -209,10 +211,10 @@ header {
 /* Footer Style */
 footer {
   margin-top: auto;
-  bottom: 0;
   width: 100%;
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
+  background-color: #1d2129;
 }
 
 footer .container {

@@ -12,6 +12,9 @@ let cartItemCount = 0;
 let currentPage = 1;
 let productsPerPage = 20;
 
+const productsPerPageSelect = document.getElementById('productsPerPageSelect');
+const paginationContainer = document.querySelector('.pagination-container');
+
 function updateCartBadge() {
   const cartBadge = document.querySelector('.fa-shopping-basket').nextElementSibling;
   cartBadge.textContent = cartItemCount > 99 ? '99+' : cartItemCount;
@@ -69,11 +72,14 @@ fetch("https://api.hyperteknoloji.com.tr/products/list", {
       rating: product.rating ? product.rating : 0,
     }));
     
-    displayProducts(allProducts);
+    filteredProducts = [...allProducts];
+    displayProducts(filteredProducts);
   })
   .catch((error) => {
     console.log("Request Error:", error);
   });
+
+let filteredProducts = [];
 
 function createPaginationButtons(totalProducts) {
   const totalPages = Math.ceil(totalProducts / productsPerPage);
@@ -89,7 +95,7 @@ function createPaginationButtons(totalProducts) {
     e.preventDefault();
     if (currentPage !== 1) {
       currentPage = 1;
-      displayProducts(allProducts);
+      displayProducts(filteredProducts);
     }
   });
   pagination.appendChild(firstLi);
@@ -103,7 +109,7 @@ function createPaginationButtons(totalProducts) {
     e.preventDefault();
     if (currentPage > 1) {
       currentPage--;
-      displayProducts(allProducts);
+      displayProducts(filteredProducts);
     }
   });
   pagination.appendChild(prevLi);
@@ -122,7 +128,7 @@ function createPaginationButtons(totalProducts) {
     li.addEventListener('click', (e) => {
       e.preventDefault();
       currentPage = i;
-      displayProducts(allProducts);
+      displayProducts(filteredProducts);
     });
     pagination.appendChild(li);
   }
@@ -136,7 +142,7 @@ function createPaginationButtons(totalProducts) {
     e.preventDefault();
     if (currentPage < totalPages) {
       currentPage++;
-      displayProducts(allProducts);
+      displayProducts(filteredProducts);
     }
   });
   pagination.appendChild(nextLi);
@@ -150,7 +156,7 @@ function createPaginationButtons(totalProducts) {
     e.preventDefault();
     if (currentPage !== totalPages) {
       currentPage = totalPages;
-      displayProducts(allProducts);
+      displayProducts(filteredProducts);
     }
   });
   pagination.appendChild(lastLi);
@@ -166,8 +172,14 @@ function displayProducts(products) {
       <h3>Ürün Bulunamadı</h3>
     `;
     productsListContainer.appendChild(noProductMessage);
+    
+    if (productsPerPageSelect) productsPerPageSelect.style.display = 'none';
+    if (paginationContainer) paginationContainer.style.display = 'none';
     return;
   }
+
+  if (productsPerPageSelect) productsPerPageSelect.style.display = 'block';
+  if (paginationContainer) paginationContainer.style.display = 'flex';
 
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = startIndex + productsPerPage;
@@ -183,9 +195,15 @@ function displayProducts(products) {
 
 function searchProducts(searchTerm) {
   currentPage = 1;
-  const filteredProducts = allProducts.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  
+  if (!searchTerm.trim()) {
+    filteredProducts = [...allProducts];
+  } else {
+    filteredProducts = allProducts.filter(product =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  
   displayProducts(filteredProducts);
 }
 
@@ -207,6 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
   productsPerPageSelect.addEventListener('change', (e) => {
     productsPerPage = parseInt(e.target.value);
     currentPage = 1;
-    displayProducts(allProducts);
+    displayProducts(filteredProducts);
   });
 });
