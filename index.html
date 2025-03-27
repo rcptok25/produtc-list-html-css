@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+    <link rel="stylesheet" href="style.css" />
+    <title>RecepTOK - Teknoloji</title>
+  </head>
+  <body>
+    <header class="container-fluid header-container">
+      <div class="row align-items-center py-3">
+        <div class="col-12 col-md-2 text-center text-md-start mb-3 mb-md-0">
+          <div class="logo">
+            <img src="assets/logo.png" alt="logo" />
+          </div>
+        </div>
+        <div class="col-12 col-md-4 mb-3 mb-md-0">
+          <div class="d-flex justify-content-center">
+            <input type="text" placeholder="Arama yap..." class="search-input"/>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="user-actions justify-content-center justify-content-md-end">
+            <span>
+              Recep TOK
+            </span>
+            <span class="position-relative">
+              <i class="fa-solid fa-bell"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0          
+              </span>
+            </span>
+            <span class="position-relative">
+              <i class="fas fa-envelope"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0           
+              </span>
+            </span>
+            <span class="position-relative">
+              <i class="fas fa-shopping-basket"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                99+            
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container py-4 main-container">     
+      <div
+        id="products-list-container"
+        class="row justify-content-center gap-1"
+      ></div>
+      <div class="pagination-container mt-4 d-flex justify-content-center align-items-center gap-3">
+        <nav aria-label="Product pagination">
+          <ul class="pagination mb-0" id="pagination">
+          </ul>
+        </nav>
+        <select id="productsPerPageSelect" class="form-select" style="width: auto;">
+          <option value="20">20</option>
+          <option value="40">40</option>
+          <option value="60">60</option>
+          <option value="80">80</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+    
+    </main>
+    <footer class="container-fluid mt-5 mb-0" style="background-color: #1d2129;">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-md-3 mb-4 mb-md-0">
+            <div class="footer-logo">
+              <img src="assets/logo.png" alt="logo" style="height: 70px;" />
+            </div>
+            <p class="text-white-50 mt-3 p-1" style="font-size: 14px;">
+              Türkiye'nin En Büyük Oyuncu Pazarı. Sevdiğiniz oyunlar için epin, goldbar, ve item'ları en uygun fiyatlarla satın alın veya hesaplarınızı güvenle satışa çıkartın.
+            </p>
+          </div>
+          <div class="col-md-3 mb-4 mb-md-0">
+            <h5 class="text-white mb-3">Kurumsal</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white-50 text-decoration-none">Hakkımızda</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">Çözüm Merkezi</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">Bayilik Başvurusu</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4 mb-md-0">
+            <h5 class="text-white mb-3">Sözleşmeler</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white-50 text-decoration-none">Gizlilik Politikası</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">Kullanıcı Sözleşmesi</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">Satış Sözleşmesi</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">İptal & İade Koşulları</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">KVKK</a></li>
+              <li><a href="#" class="text-white-50 text-decoration-none">Çerez Politikası</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 text-center">
+            <img src="assets/etbis-logo.webp" alt="ETBİS Logo" style="max-width: 150px;" />
+          </div>
+        </div>
+      </div>
+      <div class="copyright-text mt-4">
+        <span>
+          &copy; 2025 Recep TOK. Tüm hakları saklıdır.
+        </span>
+      </div>
+    </footer>
+  </body>
+  <script src="js/products-list-request.js"></script>
+</html>
